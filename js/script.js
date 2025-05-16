@@ -1,5 +1,4 @@
 // Navigation and interactivity script for ArtesaMex single-page application
-
 document.addEventListener('DOMContentLoaded', () => {
     // Product data for modal
     const products = [
@@ -17,22 +16,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1); // Remove #
+            const targetSection = document.getElementById(targetId);
 
-            // Solo manejar enlaces internos con # (no login.html, etc.)
-            if (href.startsWith('#')) {
-                e.preventDefault();
-                const targetId = href.substring(1);
-                const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                // Update active class
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
 
-                if (targetSection) {
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    link.classList.add('active');
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                    history.pushState(null, null, `#${targetId}`);
-                } else {
-                    console.error(`Section with ID ${targetId} not found`);
-                }
+                // Smooth scroll to section
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+
+                // Update URL without reloading
+                history.pushState(null, null, `#${targetId}`);
+            } else {
+                console.error(`Section with ID ${targetId} not found`);
             }
         });
     });
@@ -45,9 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             const category = button.getAttribute('data-category');
 
+            // Update active class
             categoryButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
 
+            // Filter products
             productItems.forEach(item => {
                 const itemCategory = item.getAttribute('data-category');
                 if (category === 'all' || itemCategory === category) {
@@ -88,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const message = document.getElementById('contactMessage').value.trim();
 
             if (name && email && message) {
+                // Simulate form submission (replace with actual API call in production)
                 alert('Formulario enviado con éxito. Gracias por contactarnos.');
                 contactForm.reset();
             } else {
@@ -108,3 +110,65 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+const cart = [];
+const cartCount = document.getElementById('cart-count');
+const cartItems = document.getElementById('cart-items');
+const cartTotal = document.getElementById('cart-total');
+
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+        const name = button.dataset.name;
+        const price = parseFloat(button.dataset.price);
+        const existing = cart.find(item => item.name === name);
+        if (existing) {
+            existing.quantity++;
+        } else {
+            cart.push({ name, price, quantity: 1 });
+        }
+        updateCart();
+    });
+});
+
+
+
+
+
+
+
+
+// Login simple (al final del archivo, después de carrito)
+const loginForm = document.getElementById('loginForm');
+const loginMessage = document.getElementById('loginMessage');
+
+if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const username = document.getElementById('loginUser').value.trim();
+        const password = document.getElementById('loginPass').value.trim();
+
+        // Usuarios permitidos (puedes añadir más)
+        const users = [
+            { user: 'admin', pass: '1234' },
+            { user: 'cliente', pass: '5678' }
+        ];
+
+        const validUser = users.find(u => u.user === username && u.pass === password);
+
+        if (validUser) {
+            loginMessage.textContent = `¡Bienvenido, ${username}!`;
+            loginMessage.className = 'text-success';
+
+            // Opcional: redirigir o mostrar otra sección
+            setTimeout(() => {
+                document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        } else {
+            loginMessage.textContent = 'Usuario o contraseña incorrectos.';
+            loginMessage.className = 'text-danger';
+        }
+
+        loginForm.reset();
+    });
+}
