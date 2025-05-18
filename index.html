@@ -3,182 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ArtesaMex ofrece artesanías mexicanas auténticas hechas a mano por artesanos locales. Descubre alebrijes, textiles, cerámica y más.">
+    <meta name="keywords" content="artesanías mexicanas, alebrijes, textiles, cerámica, joyería, comercio justo">
+    <meta property="og:title" content="ArtesaMex - Artesanías Mexicanas">
+    <meta property="og:description" content="Explora la belleza del arte mexicano con nuestras piezas artesanales únicas.">
+    <meta property="og:image" content="assets/images/hero-bg.jpg">
+    <meta property="og:url" content="https://artesamex.com">
     <title>ArtesaMex - Artesanías Mexicanas</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #e76f51;
-            --secondary-color: #2a9d8f;
-            --accent-color: #e9c46a;
-            --dark-color: #264653;
-            --light-color: #f4f1de;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--dark-color);
-        }
-        
-        .navbar {
-            background-color: var(--dark-color);
-        }
-        
-        .navbar-brand {
-            font-weight: bold;
-            color: var(--light-color) !important;
-        }
-        
-        .nav-link {
-            color: var(--light-color) !important;
-            font-weight: 500;
-        }
-        
-        .nav-link.active {
-            color: var(--accent-color) !important;
-        }
-        
-        .hero-section {
-            background: linear-gradient(rgba(38, 70, 83, 0.7), rgba(38, 70, 83, 0.7)), url('/api/placeholder/1920/1080');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 120px 0;
-            text-align: center;
-        }
-        
-        .hero-section h1 {
-            font-size: 3.5rem;
-            font-weight: bold;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-        
-        .btn-primary:hover {
-            background-color: #d56344;
-            border-color: #d56344;
-        }
-        
-        .btn-outline-primary {
-            color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-        
-        .btn-outline-primary:hover {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-        
-        .feature-box {
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            transition: transform 0.3s ease;
-        }
-        
-        .feature-box:hover {
-            transform: translateY(-5px);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-        }
-        
-        .section-title {
-            position: relative;
-            margin-bottom: 40px;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -10px;
-            width: 60px;
-            height: 3px;
-            background-color: var(--primary-color);
-        }
-        
-        .section-title.text-center:after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .team-member {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .team-member img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--light-color);
-        }
-        
-        .product-card {
-            border: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            margin-bottom: 30px;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .footer {
-            background-color: var(--dark-color);
-            color: var(--light-color);
-            padding: 60px 0 30px;
-        }
-        
-        .footer h5 {
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-        
-        .footer-link {
-            color: var(--light-color);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-link:hover {
-            color: var(--accent-color);
-        }
-        
-        .social-icon {
-            font-size: 1.5rem;
-            margin-right: 15px;
-            color: var(--light-color);
-            transition: color 0.3s;
-        }
-        
-        .social-icon:hover {
-            color: var(--accent-color);
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#home-page">ArtesaMex</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#home-page">Inicio</a>
+                        <a class="nav-link active" href="#home-page" aria-current="page">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about-page">Acerca de</a>
@@ -244,31 +94,31 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card product-card">
-                            <img src="/api/placeholder/400/300" class="card-img-top" alt="Producto 1">
+                            <img src="assets/images/alebrije.jpg" class="card-img-top" alt="Alebrije multicolor tallado en madera" loading="lazy">
                             <div class="card-body">
                                 <h5 class="card-title">Alebrijes</h5>
                                 <p class="card-text">Figuras talladas en madera y pintadas a mano con colores vibrantes y diseños únicos.</p>
-                                <a href="#products-page" class="btn btn-outline-primary">Ver detalles</a>
+                                <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="1">Ver detalles</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="card product-card">
-                            <img src="/api/placeholder/400/300" class="card-img-top" alt="Producto 2">
+                            <img src="assets/images/textil.jpg" class="card-img-top" alt="Textil tejido a mano" loading="lazy">
                             <div class="card-body">
                                 <h5 class="card-title">Textiles</h5>
                                 <p class="card-text">Tejidos a mano con técnicas ancestrales y patrones tradicionales de diversas regiones.</p>
-                                <a href="#products-page" class="btn btn-outline-primary">Ver detalles</a>
+                                <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="2">Ver detalles</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="card product-card">
-                            <img src="/api/placeholder/400/300" class="card-img-top" alt="Producto 3">
+                            <img src="assets/images/ceramica.jpg" class="card-img-top" alt="Cerámica decorativa" loading="lazy">
                             <div class="card-body">
                                 <h5 class="card-title">Cerámica</h5>
                                 <p class="card-text">Piezas de barro modeladas y decoradas siguiendo tradiciones centenarias.</p>
-                                <a href="#products-page" class="btn btn-outline-primary">Ver detalles</a>
+                                <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="3">Ver detalles</button>
                             </div>
                         </div>
                     </div>
@@ -284,7 +134,6 @@
     <div id="about-page" class="py-5">
         <div class="container">
             <h2 class="section-title mb-5">Acerca de Nosotros</h2>
-            
             <div class="row align-items-center mb-5">
                 <div class="col-lg-6">
                     <h3>Nuestra Historia</h3>
@@ -292,10 +141,9 @@
                     <p>Cada pieza que ofrecemos cuenta una historia única, transmitiendo la cultura, tradiciones y el espíritu creativo de México a través de las manos expertas de nuestros artesanos.</p>
                 </div>
                 <div class="col-lg-6">
-                    <img src="/api/placeholder/600/400" alt="Nuestra Historia" class="img-fluid rounded">
+                    <img src="assets/images/history.jpg" alt="Artesanos trabajando en taller" class="img-fluid rounded" loading="lazy">
                 </div>
             </div>
-            
             <div class="row align-items-center mb-5 flex-lg-row-reverse">
                 <div class="col-lg-6">
                     <h3>Nuestra Misión</h3>
@@ -309,29 +157,28 @@
                     </ul>
                 </div>
                 <div class="col-lg-6">
-                    <img src="/api/placeholder/600/400" alt="Nuestra Misión" class="img-fluid rounded">
+                    <img src="assets/images/mission.jpg" alt="Comunidad artesanal" class="img-fluid rounded" loading="lazy">
                 </div>
             </div>
-            
             <h3 class="text-center mb-4">Nuestro Equipo</h3>
             <div class="row">
                 <div class="col-md-4">
                     <div class="team-member">
-                        <img src="/api/placeholder/300/300" alt="Equipo 1">
+                        <img src="assets/images/team1.jpg" alt="María Fernández, Fundadora" loading="lazy">
                         <h4 class="mt-3">María Fernández</h4>
                         <p class="text-muted">Fundadora y Directora</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="team-member">
-                        <img src="/api/placeholder/300/300" alt="Equipo 2">
+                        <img src="assets/images/team2.jpg" alt="Carlos Ramírez, Coordinador" loading="lazy">
                         <h4 class="mt-3">Carlos Ramírez</h4>
                         <p class="text-muted">Coordinador de Artesanos</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="team-member">
-                        <img src="/api/placeholder/300/300" alt="Equipo 3">
+                        <img src="assets/images/team3.jpg" alt="Laura Gómez, Diseñadora" loading="lazy">
                         <h4 class="mt-3">Laura Gómez</h4>
                         <p class="text-muted">Diseñadora</p>
                     </div>
@@ -344,152 +191,169 @@
     <div id="products-page" class="py-5 bg-light">
         <div class="container">
             <h2 class="section-title mb-5">Nuestros Productos</h2>
-            
             <!-- Product Categories -->
-            <ul class="nav nav-pills mb-4 justify-content-center">
+            <ul class="nav nav-pills mb-4 justify-content-center" id="productCategories">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#all">Todos</a>
+                    <button class="nav-link active" data-category="all">Todos</button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#wood">Madera</a>
+                    <button class="nav-link" data-category="wood">Madera</button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#textile">Textiles</a>
+                    <button class="nav-link" data-category="textile">Textiles</button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#ceramic">Cerámica</a>
+                    <button class="nav-link" data-category="ceramic">Cerámica</button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#jewelry">Joyería</a>
+                    <button class="nav-link" data-category="jewelry">Joyería</button>
                 </li>
             </ul>
-            
             <!-- Products Grid -->
-            <div class="row">
+            <div class="row" id="productsGrid">
                 <!-- Product 1 -->
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-4 col-lg-3 product-item" data-category="wood">
                     <div class="card product-card">
-                        <img src="/api/placeholder/300/200" class="card-img-top" alt="Producto 1">
+                        <img src="assets/images/alebrije.jpg" class="card-img-top" alt="Alebrije multicolor" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Alebrije Multicolor</h5>
                             <p class="text-muted">Madera</p>
                             <p class="card-text">Figura tallada y pintada a mano con diseños únicos y colores vibrantes.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 mb-0">$850</span>
-                                <button class="btn btn-sm btn-outline-primary">Ver detalles</button>
+                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="1">Ver detalles</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                
                 <!-- Product 2 -->
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-4 col-lg-3 product-item" data-category="textile">
                     <div class="card product-card">
-                        <img src="/api/placeholder/300/200" class="card-img-top" alt="Producto 2">
+                        <img src="assets/images/rebozo.jpg" class="card-img-top" alt="Rebozo tradicional" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Rebozo Tradicional</h5>
                             <p class="text-muted">Textiles</p>
                             <p class="card-text">Tejido a mano en telar con técnicas ancestrales y tintes naturales.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 mb-0">$1,200</span>
-                                <button class="btn btn-sm btn-outline-primary">Ver detalles</button>
+                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="2">Ver detalles</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                
                 <!-- Product 3 -->
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-4 col-lg-3 product-item" data-category="ceramic">
                     <div class="card product-card">
-                        <img src="/api/placeholder/300/200" class="card-img-top" alt="Producto 3">
+                        <img src="assets/images/talavera.jpg" class="card-img-top" alt="Talavera decorativa" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Talavera Decorativa</h5>
                             <p class="text-muted">Cerámica</p>
                             <p class="card-text">Pieza de cerámica pintada a mano con diseños tradicionales de Puebla.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 mb-0">$650</span>
-                                <button class="btn btn-sm btn-outline-primary">Ver detalles</button>
+                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="3">Ver detalles</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                
                 <!-- Product 4 -->
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-4 col-lg-3 product-item" data-category="jewelry">
                     <div class="card product-card">
-                        <img src="/api/placeholder/300/200" class="card-img-top" alt="Producto 4">
+                        <img src="assets/images/collar.jpg" class="card-img-top" alt="Collar de plata" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Collar de Plata</h5>
                             <p class="text-muted">Joyería</p>
                             <p class="card-text">Joyería fina de plata trabajada a mano por artesanos de Taxco.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 mb-0">$1,500</span>
-                                <button class="btn btn-sm btn-outline-primary">Ver detalles</button>
+                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="4">Ver detalles</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                
                 <!-- Product 5 -->
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-4 col-lg-3 product-item" data-category="wood">
                     <div class="card product-card">
-                        <img src="/api/placeholder/300/200" class="card-img-top" alt="Producto 5">
+                        <img src="assets/images/mascara.jpg" class="card-img-top" alt="Máscara ceremonial" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Máscara Ceremonial</h5>
                             <p class="text-muted">Madera</p>
                             <p class="card-text">Máscara tallada en madera inspirada en tradiciones prehispánicas.</p>
-                            <div class="d-flex justify-content-between align-items-center">
+                            < Garrett> <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 mb-0">$950</span>
-                                <button class="btn btn-sm btn-outline-primary">Ver detalles</button>
+                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="5">Ver detalles</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                
                 <!-- Product 6 -->
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-4 col-lg-3 product-item" data-category="textile">
                     <div class="card product-card">
-                        <img src="/api/placeholder/300/200" class="card-img-top" alt="Producto 6">
+                        <img src="assets/images/huipil.jpg" class="card-img-top" alt="Huipil bordado" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Huipil Bordado</h5>
                             <p class="text-muted">Textiles</p>
                             <p class="card-text">Prenda tradicional con bordados a mano de Chiapas.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 mb-0">$1,800</span>
-                                <button class="btn btn-sm btn-outline-primary">Ver detalles</button>
+                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="6">Ver detalles</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                
                 <!-- Product 7 -->
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-4 col-lg-3 product-item" data-category="ceramic">
                     <div class="card product-card">
-                        <img src="/api/placeholder/300/200" class="card-img-top" alt="Producto 7">
+                        <img src="assets/images/arbol.jpg" class="card-img-top" alt="Árbol de la vida" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Árbol de la Vida</h5>
                             <p class="text-muted">Cerámica</p>
                             <p class="card-text">Pieza decorativa elaborada y pintada a mano en Metepec.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 mb-0">$1,100</span>
-                                <button class="btn btn-sm btn-outline-primary">Ver detalles</button>
+                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="7">Ver detalles</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                
                 <!-- Product 8 -->
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-4 col-lg-3 product-item" data-category="jewelry">
                     <div class="card product-card">
-                        <img src="/api/placeholder/300/200" class="card-img-top" alt="Producto 8">
+                        <img src="assets/images/aretes.jpg" class="card-img-top" alt="Aretes de ámbar" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Aretes de Ámbar</h5>
                             <p class="text-muted">Joyería</p>
                             <p class="card-text">Aretes de plata con ámbar natural de Chiapas montado a mano.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 mb-0">$780</span>
-                                <button class="btn btn-sm btn-outline-primary">Ver detalles</button>
+                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="8">Ver detalles</button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel">Detalles del Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="" class="img-fluid product-modal-img" alt="Producto" id="modalProductImage">
+                        </div>
+                        <div class="col-md-6">
+                            <h4 id="modalProductTitle"></h4>
+                            <p class="text-muted" id="modalProductCategory"></p>
+                            <p id="modalProductDescription"></p>
+                            <p class="h5" id="modalProductPrice"></p>
+                            <button class="btn btn-primary mt-3">Agregar al Carrito</button>
                         </div>
                     </div>
                 </div>
@@ -505,10 +369,10 @@
                     <h5>ArtesaMex</h5>
                     <p>Conectando el talento artesanal mexicano con el mundo desde 2015.</p>
                     <div class="mt-3">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" class="social-icon" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" target="_blank" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4 mb-md-0">
@@ -521,17 +385,18 @@
                 </div>
                 <div class="col-md-4">
                     <h5>Contáctanos</h5>
-                    <ul class="list-unstyled">
+                    <ul class="list-unstyled mb-4">
                         <li><i class="fas fa-map-marker-alt me-2"></i> Av. Artesanos 123, Colonia Centro, Ciudad de México</li>
                         <li><i class="fas fa-phone me-2"></i> (55) 1234-5678</li>
                         <li><i class="fas fa-envelope me-2"></i> contacto@artesamex.com</li>
                     </ul>
+                    
                 </div>
             </div>
             <hr class="mt-4 mb-4 bg-light">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <p class="mb-0">&copy; 2025 ArtesaMex. Todos los derechos reservados.</p>
+                    <p class="mb-0">© 2025 ArtesaMex. Todos los derechos reservados.</p>
                 </div>
             </div>
         </div>
@@ -539,40 +404,6 @@
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Simple page navigation script
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get all navbar links
-            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-            
-            // Add click event to each link
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    // Update active class
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Get target page id
-                    const targetId = this.getAttribute('href');
-                    
-                    // Hide all pages
-                    document.querySelectorAll('#home-page, #about-page, #products-page').forEach(page => {
-                        page.style.display = 'none';
-                    });
-                    
-                    // Show target page
-                    document.querySelector(targetId).style.display = 'block';
-                    
-                    // Scroll to top
-                    window.scrollTo(0, 0);
-                });
-            });
-            
-            // Initial setup - show home page
-            document.querySelector('#home-page').style.display = 'block';
-            document.querySelector('#about-page').style.display = 'none';
-            document.querySelector('#products-page').style.display = 'none';
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
