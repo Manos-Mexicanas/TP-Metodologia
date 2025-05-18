@@ -78,26 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-    // Contact form validation
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('contactName').value.trim();
-            const email = document.getElementById('contactEmail').value.trim();
-            const message = document.getElementById('contactMessage').value.trim();
-
-            if (name && email && message) {
-                // Simulate form submission (replace with actual API call in production)
-                alert('Formulario enviado con éxito. Gracias por contactarnos.');
-                contactForm.reset();
-            } else {
-                alert('Por favor, completa todos los campos.');
-            }
-        });
-    }
-
     // Handle page load with hash
     const hash = window.location.hash.substring(1);
     if (hash) {
@@ -110,6 +90,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+
+
+
+
 
 
 const cart = [];
