@@ -9,6 +9,8 @@
     <meta property="og:description" content="Explora la belleza del arte mexicano con nuestras piezas artesanales únicas.">
     <meta property="og:image" content="assets/images/hero-bg.jpg">
     <meta property="og:url" content="https://artesamex.com">
+    <!--tema de La pagina-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>ArtesaMex - Artesanías Mexicanas</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
@@ -35,6 +37,15 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#products-page">Productos</a>
+                    </li>
+                    <!--formulario de la pagina-->
+                    <li class="nav-item">
+                        <a class="nav-link" 
+                        href="javascript:void(0)"
+                        title="Contáctanos"
+                        id="contactTogglelink">
+                        <i class="fas fa-phone-alt"></i>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -88,7 +99,7 @@
         </section>
 
         <!-- Featured Products Preview -->
-        <section class="py-5 bg-light">
+        <section class="py-5 theme-bg"> <!--bg-ligth de modifico por theme-bg-->
             <div class="container">
                 <h2 class="section-title text-center mb-5">Productos Destacados</h2>
                 <div class="row">
@@ -188,7 +199,7 @@
     </div>
 
     <!-- PRODUCTS PAGE -->
-    <div id="products-page" class="py-5 bg-light">
+    <div id="products-page" class="py-5 theme-bg"> <!--bg-ligth de modifico por theme-bg-->
         <div class="container">
             <h2 class="section-title mb-5">Nuestros Productos</h2>
             <!-- Product Categories -->
@@ -279,7 +290,7 @@
                             <h5 class="card-title">Máscara Ceremonial</h5>
                             <p class="text-muted">Madera</p>
                             <p class="card-text">Máscara tallada en madera inspirada en tradiciones prehispánicas.</p>
-                            < Garrett> <div class="d-flex justify-content-between align-items-center">
+                            <Garrett> <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 mb-0">$950</span>
                                 <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="5">Ver detalles</button>
                             </div>
@@ -390,17 +401,48 @@
                         <li><i class="fas fa-phone me-2"></i> (55) 1234-5678</li>
                         <li><i class="fas fa-envelope me-2"></i> contacto@artesamex.com</li>
                     </ul>
-                    
+                    <div class="text-center mb-3">
+                    <button class="btn btn-outline-light" type="button" data-bs-toggle="collapse" data-bs-target="#footer-contact" aria-expanded="false" aria-controls="footer-contact">
+                        Formulario de contacto <span class="ms-1" id="toggle-icon">▼</span>
+                    </button>
+                </div>
                 </div>
             </div>
-            <hr class="mt-4 mb-4 bg-light">
+            <hr class="mt-4 mb-4 theme-bg">
             <div class="row">
                 <div class="col-md-12 text-center">
                     <p class="mb-0">© 2025 ArtesaMex. Todos los derechos reservados.</p>
                 </div>
             </div>
         </div>
+
+        <!--formulario de la pagina-->
+        <section id="footer-contact" class="collapse theme-bg py-5 border-top">
+            <div class="container">
+                <h4 class="text-center mb-4">Contáctanos</h4>
+                <form id="footerContactForm" class="mx-auto" style="max-width: 600px;">
+                <div class="mb-3">
+                    <label for="footerName" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="footerName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="footerEmail" class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" id="footerEmail" required>
+                </div>
+                <div class="mb-3">
+                    <label for="footerMessage" class="form-label">Mensaje</label>
+                    <textarea class="form-control" id="footerMessage" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Enviar</button>
+                </form>
+            </div>
+        </section>
     </footer>
+
+<!--tema de la pagina-->
+<button id="theme-toggle" class="btn btn-primary position-fixed" style="bottom: 20px; right: 20px; z-index: 9999; border-radius: 50%; width: 50px; height: 50px;">
+  <i id="theme-icon" class="fas fa-moon"></i>
+</button>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
