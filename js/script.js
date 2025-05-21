@@ -90,3 +90,88 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+// ========== FUNCIONALIDAD DE FILTROS ========== //
+  
+  // Función para mostrar/ocultar el filtro
+  function toggleFilter() {
+      const filter = document.getElementById('filterDropdown');
+      const btn = document.querySelector('.filter-btn');
+      
+      filter.classList.toggle('show');
+      btn.classList.toggle('active');
+  }
+  
+  // Cerrar el filtro al hacer clic fuera de él
+  document.addEventListener('click', function(event) {
+      const filter = document.getElementById('filterDropdown');
+      const btn = document.querySelector('.filter-btn');
+      
+      if (!filter.contains(event.target) && !btn.contains(event.target)) {
+          filter.classList.remove('show');
+          btn.classList.remove('active');
+      }
+  });
+  
+  // Actualizar el valor del rango de precios
+  const priceRange = document.getElementById('priceRange');
+  const priceValue = document.getElementById('priceValue');
+  
+  priceRange.addEventListener('input', function() {
+      priceValue.textContent = this.value;
+  });
+  
+  // Función para aplicar filtros
+  function applyFilters() {
+      const maxPrice = parseInt(priceRange.value);
+      const selectedCategories = [];
+      const showOnlySale = document.querySelector('input[name="sale"]:checked') !== null;
+      
+      // Obtener categorías seleccionadas
+      document.querySelectorAll('input[name="category"]:checked').forEach(checkbox => {
+          selectedCategories.push(checkbox.value);
+      });
+      
+      // Filtrar productos
+      const productos = document.querySelectorAll('.producto');
+      let visibleCount = 0;
+      
+      productos.forEach(producto => {
+          const price = parseInt(producto.dataset.price);
+          const category = producto.dataset.category;
+          const isOnSale = producto.dataset.sale === "true";
+          
+          // Verificar si el producto cumple con los filtros
+          const priceMatch = price <= maxPrice;
+          const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(category);
+          const saleMatch = !showOnlySale || isOnSale;
+          
+          if (priceMatch && categoryMatch && saleMatch) {
+              producto.style.display = 'block';
+              visibleCount++;
+          } else {
+              producto.style.display = 'none';
+          }
+      });
+      
+      // Cerrar el filtro
+      toggleFilter();
+  }
+  
+  // Función para restablecer filtros
+  function resetFilters() {
+      // Restablecer controles
+      priceRange.value = 5000;
+      priceValue.textContent = '5000';
+      
+      document.querySelectorAll('input[name="category"]').forEach(checkbox => {
+          checkbox.checked = true;
+      });
+      
+      document.querySelector('input[name="sale"]').checked = false;
+      
+      // Mostrar todos los productos
+      document.querySelectorAll('.producto').forEach(producto => {
+          producto.style.display = 'block';
+      });
+  }
