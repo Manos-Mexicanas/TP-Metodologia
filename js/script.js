@@ -78,6 +78,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+
+    // Contact form validation
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const message = document.getElementById('contactMessage').value.trim();
+
+            if (name && email && message) {
+                // Simulate form submission (replace with actual API call in production)
+                alert('Formulario enviado con éxito. Gracias por contactarnos.');
+                contactForm.reset();
+            } else {
+                alert('Por favor, completa todos los campos.');
+            }
+        });
+    }
+
     // Handle page load with hash
     const hash = window.location.hash.substring(1);
     if (hash) {
@@ -90,8 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
-
-
 
 const cart = [];
 const cartCount = document.getElementById('cart-count');
@@ -350,5 +369,48 @@ function buscar() {
             mensajeVacio.style.display = "none";
         }, 300); // Espera que se oculte con animación
     }
+}
+
+
+
+
+
+
+
+
+// Login simple (al final del archivo, después de carrito)
+const loginForm = document.getElementById('loginForm');
+const loginMessage = document.getElementById('loginMessage');
+
+if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const username = document.getElementById('loginUser').value.trim();
+        const password = document.getElementById('loginPass').value.trim();
+
+        // Usuarios permitidos (puedes añadir más)
+        const users = [
+            { user: 'admin', pass: '1234' },
+            { user: 'cliente', pass: '5678' }
+        ];
+
+        const validUser = users.find(u => u.user === username && u.pass === password);
+
+        if (validUser) {
+            loginMessage.textContent = `¡Bienvenido, ${username}!`;
+            loginMessage.className = 'text-success';
+
+            // Opcional: redirigir o mostrar otra sección
+            setTimeout(() => {
+                document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        } else {
+            loginMessage.textContent = 'Usuario o contraseña incorrectos.';
+            loginMessage.className = 'text-danger';
+        }
+
+        loginForm.reset();
+    });
 }
 
