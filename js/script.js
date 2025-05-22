@@ -90,3 +90,67 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+
+const cart = [];
+const cartCount = document.getElementById('cart-count');
+const cartItems = document.getElementById('cart-items');
+const cartTotal = document.getElementById('cart-total');
+
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+        const name = button.dataset.name;
+        const price = parseFloat(button.dataset.price);
+        const existing = cart.find(item => item.name === name);
+        if (existing) {
+            existing.quantity++;
+        } else {
+            cart.push({ name, price, quantity: 1 });
+        }
+        updateCart();
+    });
+});
+
+function updateCart() {
+    cartItems.innerHTML = '';
+    let total = 0;
+    cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+        const li = document.createElement('li');
+        li.className = 'list-group-item d-flex justify-content-between align-items-center';
+        li.innerHTML = `
+            ${item.name} x ${item.quantity} 
+            <div>
+                <button class="btn btn-sm btn-outline-secondary me-2" onclick="removeItem(${index})">-</button>
+                <strong>$${item.price * item.quantity}</strong>
+            </div>
+        `;
+        cartItems.appendChild(li);
+    });
+    cartTotal.textContent = total.toFixed(2);
+    cartCount.textContent = cart.reduce((acc, item) => acc + item.quantity, 0);
+}
+
+function removeItem(index) {
+    cart[index].quantity--;
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+    }
+    updateCart();
+}
+
+document.getElementById('clear-cart').addEventListener('click', () => {
+    cart.length = 0;
+    updateCart();
+});
+
+document.getElementById('checkout').addEventListener('click', () => {
+    alert('Gracias por su compra. Esta es una simulación.');
+    cart.length = 0;
+    updateCart();
+});
+
+document.getElementById('toggle-cart').addEventListener('click', () => {
+    const container = document.getElementById('cart-container');
+    container.style.display = container.style.display === 'none' ? 'block' : 'none';
+});

@@ -11,6 +11,7 @@
     <meta property="og:url" content="https://artesamex.com">
     <title>ArtesaMex - Artesanías Mexicanas</title>
     <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -209,129 +210,178 @@
                     <button class="nav-link" data-category="jewelry">Joyería</button>
                 </li>
             </ul>
+
+
+
+            <!-- Botón y Carrito -->
+            <div class="text-end mb-3">
+                <button class="btn btn-outline-primary" id="toggle-cart">
+                    🛒 Carrito <span class="badge bg-secondary" id="cart-count">0</span>
+                </button>
+            </div>
+
+            <div id="cart-container" class="card mb-4 hidden">
+                <div class="card-body">
+                    <h5 class="card-title">Carrito de Compras</h5>
+                    <ul id="cart-items" class="list-group mb-3"></ul>
+                    <strong>Total: $<span id="cart-total">0</span></strong>
+                    <div class="mt-3 d-flex justify-content-between">
+                        <button class="btn btn-sm btn-danger" id="clear-cart">Vaciar</button>
+                        <button class="btn btn-sm btn-success" id="checkout">Comprar</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
             <!-- Products Grid -->
             <div class="row" id="productsGrid">
                 <!-- Product 1 -->
-                <div class="col-md-4 col-lg-3 product-item" data-category="wood">
+                <div class="col-md-4 col-lg-3">
                     <div class="card product-card">
-                        <img src="assets/images/alebrije.jpg" class="card-img-top" alt="Alebrije multicolor" loading="lazy">
+                        <img src="/api/placeholder/300/200" class="card-img-top" alt="Alebrije Multicolor">
                         <div class="card-body">
                             <h5 class="card-title">Alebrije Multicolor</h5>
                             <p class="text-muted">Madera</p>
                             <p class="card-text">Figura tallada y pintada a mano con diseños únicos y colores vibrantes.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 mb-0">$850</span>
-                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="1">Ver detalles</button>
+                                <button class="btn btn-sm btn-outline-success add-to-cart" 
+                                    data-name="Alebrije Multicolor" data-price="850">
+                                    Agregar al carrito
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Product 2 -->
-                <div class="col-md-4 col-lg-3 product-item" data-category="textile">
+                <!-- Producto 2 -->
+                <div class="col-md-4 col-lg-3">
                     <div class="card product-card">
-                        <img src="assets/images/rebozo.jpg" class="card-img-top" alt="Rebozo tradicional" loading="lazy">
+                        <img src="/api/placeholder/300/200" class="card-img-top" alt="Rebozo Tradicional">
                         <div class="card-body">
                             <h5 class="card-title">Rebozo Tradicional</h5>
                             <p class="text-muted">Textiles</p>
                             <p class="card-text">Tejido a mano en telar con técnicas ancestrales y tintes naturales.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 mb-0">$1,200</span>
-                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="2">Ver detalles</button>
+                                <button class="btn btn-sm btn-outline-success add-to-cart" 
+                                    data-name="Rebozo Tradicional" data-price="1200">
+                                    Agregar al carrito
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Product 3 -->
-                <div class="col-md-4 col-lg-3 product-item" data-category="ceramic">
+                <!-- Producto 3 -->
+                <div class="col-md-4 col-lg-3">
                     <div class="card product-card">
-                        <img src="assets/images/talavera.jpg" class="card-img-top" alt="Talavera decorativa" loading="lazy">
+                        <img src="/api/placeholder/300/200" class="card-img-top" alt="Talavera Decorativa">
                         <div class="card-body">
                             <h5 class="card-title">Talavera Decorativa</h5>
                             <p class="text-muted">Cerámica</p>
                             <p class="card-text">Pieza de cerámica pintada a mano con diseños tradicionales de Puebla.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 mb-0">$650</span>
-                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="3">Ver detalles</button>
+                                <button class="btn btn-sm btn-outline-success add-to-cart" 
+                                    data-name="Talavera Decorativa" data-price="650">
+                                    Agregar al carrito
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Product 4 -->
-                <div class="col-md-4 col-lg-3 product-item" data-category="jewelry">
+                <!-- Producto 4 -->
+                <div class="col-md-4 col-lg-3">
                     <div class="card product-card">
-                        <img src="assets/images/collar.jpg" class="card-img-top" alt="Collar de plata" loading="lazy">
+                        <img src="/api/placeholder/300/200" class="card-img-top" alt="Collar de Plata">
                         <div class="card-body">
                             <h5 class="card-title">Collar de Plata</h5>
                             <p class="text-muted">Joyería</p>
                             <p class="card-text">Joyería fina de plata trabajada a mano por artesanos de Taxco.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 mb-0">$1,500</span>
-                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="4">Ver detalles</button>
+                                <button class="btn btn-sm btn-outline-success add-to-cart" 
+                                    data-name="Collar de Plata" data-price="1500">
+                                    Agregar al carrito
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Product 5 -->
-                <div class="col-md-4 col-lg-3 product-item" data-category="wood">
+                <!-- Producto 5 -->
+                <div class="col-md-4 col-lg-3">
                     <div class="card product-card">
-                        <img src="assets/images/mascara.jpg" class="card-img-top" alt="Máscara ceremonial" loading="lazy">
+                        <img src="/api/placeholder/300/200" class="card-img-top" alt="Máscara Ceremonial">
                         <div class="card-body">
                             <h5 class="card-title">Máscara Ceremonial</h5>
                             <p class="text-muted">Madera</p>
                             <p class="card-text">Máscara tallada en madera inspirada en tradiciones prehispánicas.</p>
-                            < Garrett> <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 mb-0">$950</span>
-                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="5">Ver detalles</button>
+                                <button class="btn btn-sm btn-outline-success add-to-cart" 
+                                    data-name="Máscara Ceremonial" data-price="950">
+                                    Agregar al carrito
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Product 6 -->
-                <div class="col-md-4 col-lg-3 product-item" data-category="textile">
+                <!-- Producto 6 -->
+                <div class="col-md-4 col-lg-3">
                     <div class="card product-card">
-                        <img src="assets/images/huipil.jpg" class="card-img-top" alt="Huipil bordado" loading="lazy">
+                        <img src="/api/placeholder/300/200" class="card-img-top" alt="Huipil Bordado">
                         <div class="card-body">
                             <h5 class="card-title">Huipil Bordado</h5>
                             <p class="text-muted">Textiles</p>
                             <p class="card-text">Prenda tradicional con bordados a mano de Chiapas.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 mb-0">$1,800</span>
-                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="6">Ver detalles</button>
+                                <button class="btn btn-sm btn-outline-success add-to-cart" 
+                                    data-name="Huipil Bordado" data-price="1800">
+                                    Agregar al carrito
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Product 7 -->
-                <div class="col-md-4 col-lg-3 product-item" data-category="ceramic">
+                <!-- Producto 7 -->
+                <div class="col-md-4 col-lg-3">
                     <div class="card product-card">
-                        <img src="assets/images/arbol.jpg" class="card-img-top" alt="Árbol de la vida" loading="lazy">
+                        <img src="/api/placeholder/300/200" class="card-img-top" alt="Árbol de la Vida">
                         <div class="card-body">
                             <h5 class="card-title">Árbol de la Vida</h5>
                             <p class="text-muted">Cerámica</p>
                             <p class="card-text">Pieza decorativa elaborada y pintada a mano en Metepec.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 mb-0">$1,100</span>
-                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="7">Ver detalles</button>
+                                <button class="btn btn-sm btn-outline-success add-to-cart" 
+                                    data-name="Árbol de la Vida" data-price="1100">
+                                    Agregar al carrito
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Product 8 -->
-                <div class="col-md-4 col-lg-3 product-item" data-category="jewelry">
+                <!-- Producto 8 -->
+                <div class="col-md-4 col-lg-3">
                     <div class="card product-card">
-                        <img src="assets/images/aretes.jpg" class="card-img-top" alt="Aretes de ámbar" loading="lazy">
+                        <img src="/api/placeholder/300/200" class="card-img-top" alt="Aretes de Ámbar">
                         <div class="card-body">
                             <h5 class="card-title">Aretes de Ámbar</h5>
                             <p class="text-muted">Joyería</p>
                             <p class="card-text">Aretes de plata con ámbar natural de Chiapas montado a mano.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 mb-0">$780</span>
-                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal" data-product-id="8">Ver detalles</button>
+                                <button class="btn btn-sm btn-outline-success add-to-cart" 
+                                    data-name="Aretes de Ámbar" data-price="780">
+                                    Agregar al carrito
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> <!-- Fin de fila de productos -->
         </div>
     </div>
 
@@ -362,7 +412,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
+     <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4 mb-md-0">
@@ -384,6 +434,7 @@
                     </ul>
                 </div>
                 <div class="col-md-4">
+                    
                     <h5>Contáctanos</h5>
                     <ul class="list-unstyled mb-4">
                         <li><i class="fas fa-map-marker-alt me-2"></i> Av. Artesanos 123, Colonia Centro, Ciudad de México</li>
