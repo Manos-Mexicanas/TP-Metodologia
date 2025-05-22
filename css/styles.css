@@ -195,6 +195,12 @@ body {
     max-height: 400px;
     object-fit: cover;
 }
+
+.hidden {
+  display: none;
+}
+
+
 /* Media Queries para responsividad */
 @media (max-width: 576px) {
     .hero-section h1 {
