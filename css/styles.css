@@ -235,6 +235,7 @@ body {
         font-size: 4.5rem;
     }
 }
+
 /*tema de la pagina*/
 body {
   background-color: var(--bg-color);
@@ -277,3 +278,198 @@ body {
 hr {
   background-color: var(--footer-text);
 }
+
+
+/*ESTILOS DE FILTROS*/
+.filtro-container {
+    background-color: #f9f9f9;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+.filtro-container h4 {
+    font-weight: bold;
+    color: var(--dark-color);
+    margin-bottom: 20px;
+}
+
+.filtro-container label {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.form-range::-webkit-slider-thumb {
+    background-color: var(--primary-color);
+}
+
+#precioValor {
+    font-weight: 500;
+    color: var(--dark-color);
+    margin-top: 5px;
+}
+
+/* Estilos para el filtro desplegable */
+.filter-dropdown {
+    position: relative;
+    margin-right: 15px;
+    z-index: 1001;
+    float: right; /* Mueve el filtro a la derecha */
+}
+
+.filter-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #d56344;
+}
+
+.filter-btn i {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.filter-btn.active i {
+    transform: rotate(180deg);
+}
+
+.filter-dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    min-width: 300px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    z-index: 1000;
+    padding: 15px;
+    margin-top: 5px;
+    top: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.filter-dropdown-content.show {
+    display: block;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.filter-section {
+    margin-bottom: 15px;
+}
+
+.filter-section h6 {
+    color: var(--dark-color);
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.filter-option {
+    display: block;
+    padding: 5px 0;
+    color: var(--dark-color);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.filter-option:hover {
+    color: var(--primary-color);
+}
+
+.filter-option input {
+    margin-right: 8px;
+}
+
+.price-range {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.price-value {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: var(--dark-color);
+}
+
+/* Estilo para productos en oferta */
+.sale-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9rem;
+    margin-right: 5px;
+}
+
+/* Resaltar productos encontrados */
+.product-card.highlight {
+    animation: highlight 1.5s ease-in-out 2;
+    box-shadow: 0 0 0 4px var(--accent-color);
+}
+
+@keyframes highlight {
+    0% { box-shadow: 0 0 0 0 rgba(233, 196, 106, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(233, 196, 106, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(233, 196, 106, 0); }
+}
+
+/* Estilos responsivos para el filtro */
+@media (max-width: 768px) {
+    .filter-dropdown {
+        float: none;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .filter-dropdown-content {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 400px;
+        max-height: 80vh;
+    }
+    
+    .filter-btn {
+        width: auto;
+        justify-content: center;
+    }
+    
+    .search-container input[type="text"] {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
