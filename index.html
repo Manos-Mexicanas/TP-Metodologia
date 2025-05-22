@@ -250,6 +250,22 @@
     <div id="products-page" class="py-5 theme-bg"> <!--bg-ligth de modifico por theme-bg-->
         <div class="container">
             <h2 class="section-title mb-5">Nuestros Productos</h2>
+            <!-- BUSCADOR -->
+            <div class="search-wrapper">
+                <div class="search-container">
+                  <input type="text" id="busqueda" oninput="buscar()" placeholder="Buscar producto...">
+                  <button onclick="buscar()">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            <!-- Mensaje-->
+            <div id="mensaje-vacio" style="display: none;" class="mensaje-vacio d-flex flex-column align-items-center justify-content-center my-4">
+                <svg class="icono mb-2" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#d9534f" viewBox="0 0 24 24">
+                    <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                </svg>
+                <span class="fw-semibold text-danger">Producto no encontrado</span>
+            </div>
             <!-- Product Categories -->
             <ul class="nav nav-pills mb-4 justify-content-center" id="productCategories">
                 <li class="nav-item">

@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
 const cart = [];
 const cartCount = document.getElementById('cart-count');
 const cartItems = document.getElementById('cart-items');
@@ -320,4 +321,34 @@ document.addEventListener('DOMContentLoaded', function () {
           producto.style.display = 'block';
       });
   }
+
+
+// Funcion para buscar
+function buscar() {
+    const inputBusqueda = document.getElementById("busqueda").value.trim().toLowerCase();
+    const productos = document.querySelectorAll(".product-card");
+    const mensajeVacio = document.getElementById("mensaje-vacio");
+
+    let productosVisibles = 0;
+
+    productos.forEach(producto => {
+        const titulo = producto.querySelector(".card-title");
+        if (titulo) {
+            const textoTitulo = titulo.textContent.trim().toLowerCase();
+            const coincide = textoTitulo.includes(inputBusqueda);
+            producto.style.display = coincide ? "" : "none";
+            if (coincide) productosVisibles++;
+        }
+    });
+
+    if (productosVisibles === 0) {
+        mensajeVacio.style.display = "flex";
+        mensajeVacio.classList.add("mostrar");
+    } else {
+        mensajeVacio.classList.remove("mostrar");
+        setTimeout(() => {
+            mensajeVacio.style.display = "none";
+        }, 300); // Espera que se oculte con animación
+    }
+}
 
