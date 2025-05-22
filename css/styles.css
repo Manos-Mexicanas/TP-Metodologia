@@ -16,6 +16,21 @@ html {
     --accent-color: #e9c46a;
     --dark-color: #264653;
     --light-color: #f4f1de;
+    /*tema de la pagina*/
+    --bg-color: #ffffff;
+    --text-color: #212529;
+    --card-bg: #f8f9fa;
+    --primary-color: #0d6efd;
+    --footer-bg: #212529;
+    --footer-text: #f8f9fa;
+    }
+    [data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #f1f1f1;
+    --card-bg: #1e1e1e;
+    --primary-color: #bb86fc;
+    --footer-bg: #1e1e1e;
+    --footer-text: #e0e0e0;
 }
 
 body {
@@ -219,4 +234,46 @@ body {
     .hero-section h1 {
         font-size: 4.5rem;
     }
+}
+/*tema de la pagina*/
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+.btn-primary, .btn-outline-primary {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.section-title {
+  color: var(--text-color);
+}
+
+.footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+}
+
+.footer a {
+  color: var(--footer-text);
+}
+
+.footer a:hover {
+  color: var(--primary-color);
+}
+
+hr {
+  background-color: var(--footer-text);
 }

@@ -91,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
 const cart = [];
 const cartCount = document.getElementById('cart-count');
 const cartItems = document.getElementById('cart-items');
@@ -154,3 +153,84 @@ document.getElementById('toggle-cart').addEventListener('click', () => {
     const container = document.getElementById('cart-container');
     container.style.display = container.style.display === 'none' ? 'block' : 'none';
 });
+
+//tema de la pagina
+document.addEventListener('DOMContentLoaded', () => {
+  // Navegación de páginas
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+            const targetId = this.getAttribute('href');
+            document.querySelectorAll('#home-page, #about-page, #products-page').forEach(page => {
+                page.style.display = 'none';
+            });
+        document.querySelector(targetId).style.display = 'block';
+        window.scrollTo(0, 0);
+        });
+    });
+document.querySelector('#home-page').style.display = 'block';
+document.querySelector('#about-page').style.display = 'none';
+document.querySelector('#products-page').style.display = 'none';
+
+  // Theme switcher
+    const toggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+        document.body.setAttribute('data-theme', currentTheme);
+        themeIcon.className = currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+
+    toggleBtn.addEventListener('click', () => {
+        const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        themeIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    });
+});
+//formulario de la pagina
+document.getElementById('footerContactForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('footerName').value.trim();
+    const email = document.getElementById('footerEmail').value.trim();
+    const message = document.getElementById('footerMessage').value.trim();
+    if (name && email && message) {
+        alert('Gracias por tu mensaje. Te responderemos pronto.');
+        this.reset();
+    } else {
+        alert('Por favor completa todos los campos.');
+    }
+document.addEventListener('DOMContentLoaded', function () {
+    const formSection = document.getElementById('footer-contact');
+    const toggleIcon = document.getElementById('toggle-icon');
+    const contactLink = document.getElementById('contactToggleLink');
+
+    if (formSection) {
+      // Cambia flecha cuando se despliega o se oculta
+    formSection.addEventListener('show.bs.collapse', () => {
+        toggleIcon.textContent = '▲';
+    });
+
+    formSection.addEventListener('hide.bs.collapse', () => {
+        toggleIcon.textContent = '▼';
+    });
+
+      // Botón del ícono de teléfono del nav
+    if (contactLink) {
+        contactLink.addEventListener('click', function (e) {
+          e.preventDefault(); // evita scroll
+            const collapseInstance = bootstrap.Collapse.getOrCreateInstance(formSection);
+            if (formSection.classList.contains('show')) {
+            collapseInstance.hide();
+            } else {
+            collapseInstance.show();
+            // scroll suave hasta el footer
+            formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    }
+    }
+});
+
+});
+
